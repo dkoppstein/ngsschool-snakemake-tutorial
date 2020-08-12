@@ -1,0 +1,14 @@
+input_data = "input_data/{id}.txt"
+ids, = glob_wildcards(input_data)
+
+rule concatenate:
+    input: expand(input_data, id=ids)
+    output: "output/concatenated.txt"
+    run:
+        with open(output[0], "w") as outh:
+            for fname in input:
+                for l in (open(fname)):
+                    print(l, file=outh, end="")
+
+rule all:
+    input: rules.concatenate.output
