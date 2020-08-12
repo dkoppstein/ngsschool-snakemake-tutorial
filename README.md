@@ -23,7 +23,7 @@ Minimal examples corresponding to the slides can be found in the exercises folde
 
 ```
 conda activate ngstutorial
-snakemake -printshellcmds -- all
+snakemake --printshellcmds -- all
 ```
 
 For dummy rules, run them using the `-n` flag. 
