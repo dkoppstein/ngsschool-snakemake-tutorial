@@ -4,7 +4,7 @@
 
 # About the Presenter
 
-Dr. David Koppstein is a researcher at the Berlin Institute of Medical Systems Biology and a graduate of MIT. Although trained as a wet lab biologist, he is enthusiastic about Python and reproducible research. 
+Dr. David Koppstein is a researcher at the Berlin Institute of Medical Systems Biology and a graduate of MIT. Although originally trained as a wet lab biologist, he is also enthusiastic about Python and reproducible research. 
 
 # Setup
 
