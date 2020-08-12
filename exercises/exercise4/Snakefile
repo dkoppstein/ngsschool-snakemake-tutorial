@@ -1,11 +1,27 @@
-input_data = "input_data/{id}.txt"
-ids, = glob_wildcards(input_data)
+# NB: THIS IS A DUMMY SCRIPT, only run using snakemake -n
 
-rule sort:
-    input: "input_data/{id}.txt"
-    output: "output/{id}.sorted.txt"
+input_data = "input_data/{id}.fastq"
+ids, = glob_wildcards(input_data)
+subsampling = [1000, 10000]
+
+# set up some fake indices
+sample_dict = {"file1": "index/human.idx",
+               "file2": "index/mouse.idx"}
+
+rule dummy_mapping:
+    input:
+        fastq=input_data,
+        index=lambda wc: sample_dict[wc.id]
+    output: "output/{id}_subsample-{subsample}.bam"
     shell:
-        "sort {input} > {output}"
+        "dummy_mapper -f {input.fastq} "
+        "-i {input.index} "
+        "-o {output} "
+        "--subsample {wildcards.subsample} "
+
+# in reality, we would use something like
+# STAR --genomeDir {input.index} --readFilesIn {input.fastq}
+# --outFileNamePrefix output/{wildcards.id}
 
 rule all:
-    input: ["output/file1.sorted.txt", "output/file2.sorted.txt"]
+    input: expand(rules.dummy_mapping.output, id=ids, subsample=subsampling)
