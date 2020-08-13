@@ -4,14 +4,13 @@ input_data = "input_data/{id}.fastq"
 ids, = glob_wildcards(input_data)
 subsampling = [1000, 10000]
 
-# set up some fake indices
-sample_dict = {"file1": "index/human.idx",
-               "file2": "index/mouse.idx"}
+# use a config file to store our metadata
+configfile: "config.yaml"
 
 rule dummy_mapping:
     input:
         fastq=input_data,
-        index=lambda wc: sample_dict[wc.id]
+        index=lambda wc: config["sample_index"][wc.id]
     output: "output/{id}_subsample-{subsample}.bam"
     params:
         subsample="--subsample {subsample}"

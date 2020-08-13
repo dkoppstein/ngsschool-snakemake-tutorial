@@ -1,0 +1,10 @@
+ids, = glob_wildcards("input_data/{sample}_in.txt")
+
+rule all:
+    input: expand("output/{sample}_out.txt", sample=ids)
+
+rule hello:
+    input: "input_data/{sample}_in.txt"
+    output: "output/{sample}_out.txt"
+    script:
+        "scripts/script.py"

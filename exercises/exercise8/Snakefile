@@ -1,0 +1,9 @@
+rule samtools_view:
+    input:
+        "input_data/input.sam"
+    output:
+        "output/output.bam"
+    params:
+        "-b" # optional params string
+    wrapper:
+        "0.64.0/bio/samtools/view"

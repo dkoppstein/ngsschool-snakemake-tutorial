@@ -1,0 +1,12 @@
+
+container: "docker://continuumio/miniconda3"
+
+rule plot:
+    input:
+        "input_data/table.txt"
+    output:
+        "output/myplot.pdf"
+    conda:
+        "envs/ggplot.yaml"
+    script:
+        "scripts/plot-stuff.R"

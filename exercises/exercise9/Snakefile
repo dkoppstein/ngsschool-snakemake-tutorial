@@ -1,0 +1,8 @@
+rule sort_parallel:
+    input:
+        "input_data/bigdata.txt"
+    output:
+        "output/bigdata_sorted.txt"
+    threads: 8
+    shell:
+        "sort --parallel={threads} {input} > {output}"

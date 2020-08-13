@@ -1,0 +1,4 @@
+rule hello:
+    output: "test.txt"
+    conda: "env.yaml"
+    notebook: "hello.py.ipynb"

@@ -1,13 +1,12 @@
 
 import os
 
-input_data = "input_data/{filename}.txt"
-output_dir = "output"
+input_data = "input_data/{id}.txt"
 ids, = glob_wildcards(input_data)
 
 rule concatenate:
-    input: expand(input_data, filename=ids)
-    output: "{}/concatenated.txt".format(output_dir)
+    input: expand(input_data, id=ids)
+    output: "output/concatenated.txt"
     shell:
         "cat {input} > {output}"
 

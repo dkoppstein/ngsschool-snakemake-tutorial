@@ -1,0 +1,12 @@
+# run with snakemake -s Snakefile_incorrect --debug
+
+my_vars = ["A", "B", "C"]
+
+rule incorrect:
+    output: "output/test.txt"
+    log: "log.txt"
+    run:
+        import pdb; pdb.set_trace()
+        with open(output[0], "w") as outh, open(log[0], "w") as logh:
+            print("Running incorrect rule...", file=logh)
+            print(my_vars[3], file=outh)
