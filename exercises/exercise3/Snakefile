@@ -1,14 +1,12 @@
+
 input_data = "input_data/{id}.txt"
 ids, = glob_wildcards(input_data)
 
-rule concatenate:
-    input: expand(input_data, id=ids)
-    output: "output/concatenated.txt"
-    run:
-        with open(output[0], "w") as outh:
-            for fname in input:
-                for l in (open(fname)):
-                    print(l, file=outh, end="")
+rule sort:
+    input: "input_data/{id}.txt"
+    output: "output/{id}.sorted.txt"
+    shell:
+        "sort {input} > {output}"
 
 rule all:
-    input: rules.concatenate.output
+    input: expand(rules.sort.output, id=ids)
