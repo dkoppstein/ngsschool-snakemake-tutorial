@@ -1,10 +1,14 @@
+# NGSchool Seminar
+
+The seminar was organized by [NGSchool](https://ngschool.eu/ngseminars/) and was livestreamed on [Youtube](https://www.youtube.com/watch?v=h2CJ-qr8fjs). Follow along with the exercises in this github repository. 
+
 # About Snakemake
 
 [Snakemake](https://snakemake.readthedocs.io/en/stable/) is a Pythonic workflow engine developed by Johannes Köster. It has gained popularity for its concise syntax and robust execution. 
 
 # About the Presenter
 
-Dr. David Koppstein is a researcher at the Berlin Institute of Medical Systems Biology and a graduate of MIT. Although originally trained as a wet lab biologist, he is also enthusiastic about Python and reproducible research. 
+[Dr. David Koppstein](www.davidkoppstein.com) is a researcher at the Berlin Institute of Medical Systems Biology and a graduate of MIT. Although originally trained as a wet lab biologist, he is also enthusiastic about Python and reproducible research. 
 
 # Setup
 
